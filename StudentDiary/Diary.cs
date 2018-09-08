@@ -6,12 +6,16 @@ namespace StudentDiary
 {
     class Diary
     {
+        //kontruktor własny
+        public Diary()
+        {
+            ratings = new List<float>();
+        }
+
         //Stan (zmienne - pola)
         List<float> ratings = new List<float>();
 
-
         //Zachowania (metody, którymi będzie dysponować klasa) 
-
         public void AddRating (float rating)
         {
             ratings.Add(rating);
