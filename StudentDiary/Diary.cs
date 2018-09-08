@@ -25,6 +25,8 @@ namespace StudentDiary
         /// <returns></returns>
         public DiaryStatistics ComputeStatistics()
         {
+            DiaryStatistics stats = new DiaryStatistics();
+
             float sum = 0;
 
             foreach (var rating in ratings)
@@ -32,12 +34,11 @@ namespace StudentDiary
                 sum += rating;
             }
 
-            DiaryStatistics stats1 = new DiaryStatistics();
-            stats1.averageGrade = sum / ratings.Count;
-            stats1.maxGrade = ratings.Max();
-            stats1.minGrade = ratings.Min();
-
-            return stats1;
+            stats.averageGrade = sum / ratings.Count;
+            stats.maxGrade = ratings.Max();
+            stats.minGrade = ratings.Min();
+            
+            return stats;
         }
     }
 }
