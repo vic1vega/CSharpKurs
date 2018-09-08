@@ -6,42 +6,39 @@ namespace StudentDiary
 {
     class Diary
     {
-        //kontruktor własny
-        public Diary()
-        {
-            ratings = new List<float>();
-        }
-
         //Stan (zmienne - pola)
         List<float> ratings = new List<float>();
-
+        
         //Zachowania (metody, którymi będzie dysponować klasa) 
+
+        /// <summary>
+        /// Dodaje ocenę do zbioru ocen w Dzienniczku
+        /// </summary>
+        /// <param name="rating">Nowa ocena</param>
         public void AddRating (float rating)
         {
             ratings.Add(rating);
         }
-
-        public float CalculateAverage()
+        /// <summary>
+        /// Oblicza statystyki wyseparowane do klasy DiaryStatistics
+        /// </summary>
+        /// <returns></returns>
+        public DiaryStatistics ComputeStatistics()
         {
-            float sum = 0, avg = 0;
+            DiaryStatistics stats = new DiaryStatistics();
+
+            float sum = 0;
 
             foreach (var rating in ratings)
             {
                 sum += rating;
             }
 
-            avg = sum / ratings.Count;
-            return avg;
-        }
-
-        public float GetMaxRating()
-        {
-            return ratings.Max();
-        }
-
-        public float GetMinRating()
-        {
-            return ratings.Min();
+            stats.averageGrade = sum / ratings.Count;
+            stats.maxGrade = ratings.Max();
+            stats.minGrade = ratings.Min();
+            
+            return stats;
         }
     }
 }
