@@ -13,7 +13,7 @@ namespace Types
             diary.Name  = " Nowy dziennik Marcina";
         }
 
-        //przekazywanie referencji
+        //przekazywanie wartości
         static int IncreamentNumber(int number)
         {
             number += 1;
@@ -37,6 +37,35 @@ namespace Types
             //Console.WriteLine("Najniższa ocena to: " + stats.minGrade);
             //Console.ReadKey();
 
+            //PassBValueAndRef();
+
+            Immutable();
+
+            //string name1 = "Marcin";
+            //string name2 = "marcin";
+            ////pokazanie enumeracji na metodzie stringcomparision
+            //bool areEqual = name1.Equals(name2, StringComparison.CurrentCultureIgnoreCase);
+            //Console.WriteLine(areEqual);
+
+            Console.Write("Press any key to quit...");
+            Console.ReadKey();
+
+        }
+
+        private static void Immutable()
+        {
+            string name = " Marcin ";
+            name = name.Trim();
+
+            DateTime date = new DateTime(2018, 3, 10);
+            date = date.AddHours(48);
+
+            Console.WriteLine(name);
+            Console.WriteLine(date);
+        }
+
+        private static void PassBValueAndRef()
+        {
             //przykład dla typów referencyjnych
             Diary diary1 = new Diary();
             Diary diary2 = diary1;
@@ -50,15 +79,6 @@ namespace Types
 
             //implementacja metody z parametrem typu wartościowego
             x1 = IncreamentNumber(x1);
-
-            string name1 = "Marcin";
-            string name2 = "marcin";
-            //pokazanie enumeracji na metodzie stringcomparision
-            bool areEqual = name1.Equals(name2,StringComparison.CurrentCultureIgnoreCase);
-            Console.WriteLine(areEqual);
-
-            Console.Write("Press any key to quit...");
-            Console.ReadKey();
         }
     }
 }
