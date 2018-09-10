@@ -6,15 +6,21 @@ namespace Episode13
 { 
     class Diary
     {
-        //Stan (zmienne - pola)
         public Diary()
         {
             ratings = new List<float>();
+            count++;
         }
+        //Stan (zmienne - pola)
 
+        private List<float> ratings;
+        //pola statyczne - 1-wszy przykład
+        public static float maxGrade = 10;
+        public static float minGrade = 0;
+        //pola statyczne - 2-gi przykład
+        public static int count = 0;
 
         //Zachowania (metody, którymi będzie dysponować klasa) 
-        private List<float> ratings;
 
         /// <summary>
         /// Dodaje ocenę do zbioru ocen w Dzienniczku
