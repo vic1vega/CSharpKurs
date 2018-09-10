@@ -39,7 +39,10 @@ namespace Types
 
             //PassBValueAndRef();
 
-            Immutable();
+            //Immutable();
+
+            Arrays();
+
 
             //string name1 = "Marcin";
             //string name2 = "marcin";
@@ -50,6 +53,30 @@ namespace Types
             Console.Write("Press any key to quit...");
             Console.ReadKey();
 
+        }
+
+        private static void Arrays()
+        {
+            float[] ratings = new float[5];
+
+            AddRatings(ratings);
+            
+            foreach (var rating in ratings)
+            {
+                Console.WriteLine(rating);
+            }
+        }
+
+        private static void AddRatings(float[] rateings)
+        {
+            if (rateings.Length >= 4)
+            {
+                rateings[0] = 4.2f;
+                rateings[1] = 3.2f;
+                rateings[2] = 0.2f;
+                rateings[3] = 8.2f;
+
+            }
         }
 
         private static void Immutable()
