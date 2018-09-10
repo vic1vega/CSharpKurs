@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StudentDiary
-{
+namespace Episode13
+{ 
     class Diary
     {
         //Stan (zmienne - pola)
-        List<float> ratings = new List<float>();
+        public Diary()
+        {
+            ratings = new List<float>();
+        }
+
 
         //Zachowania (metody, którymi będzie dysponować klasa) 
+        private List<float> ratings;
 
         /// <summary>
         /// Dodaje ocenę do zbioru ocen w Dzienniczku
@@ -17,8 +22,12 @@ namespace StudentDiary
         /// <param name="rating">Nowa ocena</param>
         public void AddRating (float rating)
         {
-            ratings.Add(rating);
+            if (rating > 0 && rating <=10)
+            {
+                ratings.Add(rating);
+            }
         }
+
         /// <summary>
         /// Oblicza statystyki wyseparowane do klasy DiaryStatistics
         /// </summary>
