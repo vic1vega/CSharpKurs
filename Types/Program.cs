@@ -6,6 +6,20 @@ namespace Types
 {
     class Program
     {
+        //przekazywanie referencji
+        static void GiveName(ref Diary diary)
+        {
+            diary = new Diary();
+            diary.Name = " Nowy dziennik Marcina";
+        }
+
+        //przekazywanie referencji
+        static int IncreamentNumber(int number)
+        {
+            number += 1;
+            return number;
+        }
+
         static void Main(string[] args)
         {
             ////Najważniejsza część odcinka tworzenie nowego obiektu przez użycie konstruktora domyslnego!!!
@@ -24,18 +38,19 @@ namespace Types
             //Console.ReadKey();
 
             //przykład dla typów referencyjnych
-            //Diary diary1 = new Diary();
-            //Diary diary2 = diary1;
+            Diary diary1 = new Diary();
+            Diary diary2 = diary1;
 
-            //diary1 = new Diary();
+            //implementacja metody z parametrem typu referencyjnego
+            GiveName(ref diary1);
 
-            //diary1.Name = "Dziennik Marcina";
-            //Console.WriteLine("Nazwa dziennika 2: " + diary2.Name);
+            Console.WriteLine("Nazwa dziennika 2: " + diary2.Name);
 
-            //przykłady dla typów wartościowych
             int x1 = 4;
-            int x2 = x1;
-            x1 = 100;
+
+            //implementacja metody z parametrem typu wartościowego
+            x1 = IncreamentNumber(x1);
+
 
         }
     }
