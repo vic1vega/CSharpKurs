@@ -10,7 +10,7 @@ namespace Types
         static void GiveName(ref Diary diary)
         {
             diary = new Diary();
-            diary.Name = " Nowy dziennik Marcina";
+            diary.Name  = " Nowy dziennik Marcina";
         }
 
         //przekazywanie referencji
@@ -51,7 +51,14 @@ namespace Types
             //implementacja metody z parametrem typu wartościowego
             x1 = IncreamentNumber(x1);
 
+            string name1 = "Marcin";
+            string name2 = "marcin";
+            //pokazanie enumeracji na metodzie stringcomparision
+            bool areEqual = name1.Equals(name2,StringComparison.CurrentCultureIgnoreCase);
+            Console.WriteLine(areEqual);
 
+            Console.Write("Press any key to quit...");
+            Console.ReadKey();
         }
     }
 }
