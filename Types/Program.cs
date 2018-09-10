@@ -23,13 +23,20 @@ namespace Types
             //Console.WriteLine("Najniższa ocena to: " + stats.minGrade);
             //Console.ReadKey();
 
-            Diary diary1 = new Diary();
-            Diary diary2 = diary1;
+            //przykład dla typów referencyjnych
+            //Diary diary1 = new Diary();
+            //Diary diary2 = diary1;
 
-            diary1 = new Diary();
+            //diary1 = new Diary();
 
-            diary1.Name = "Dziennik Marcina";
-            Console.WriteLine("Nazwa dziennika 2: " + diary2.Name);
+            //diary1.Name = "Dziennik Marcina";
+            //Console.WriteLine("Nazwa dziennika 2: " + diary2.Name);
+
+            //przykłady dla typów wartościowych
+            int x1 = 4;
+            int x2 = x1;
+            x1 = 100;
+
         }
     }
 }
