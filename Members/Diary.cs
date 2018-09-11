@@ -8,7 +8,24 @@ namespace Members
     {
         //Stan (zmienne - pola)
         List<float> ratings = new List<float>();
-        public string Name;
+
+        private string _name;
+
+        public string Name
+        {
+            get
+            {
+                return _name.ToUpper();
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _name = value;
+                }
+            }
+        }
 
         //Zachowania (metody, którymi będzie dysponować klasa) 
 

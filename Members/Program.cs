@@ -16,11 +16,13 @@ namespace Members
 
             DiaryStatistics stats = diary.ComputeStatistics();
 
-            WriteResult("średnia",stats.averageGrade);
-            WriteResult("Max", (int)stats.maxGrade,1);
-            WriteResult("Minimum",stats.minGrade);
-
-            Console.Write("Press any key to quit...");
+            //WriteResult("średnia",stats.averageGrade);
+            //WriteResult("Max", (int)stats.maxGrade,1);
+            //WriteResult("Minimum",stats.minGrade);
+            diary.Name = "Dziennik Icka";
+            diary.Name = "";
+            
+            Console.Write(diary.Name);
             Console.ReadKey();
         }
 
