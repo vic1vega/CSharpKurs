@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Types
 {
-    class Diary
+    public class Diary
     {
         //Stan (zmienne - pola)
         List<float> ratings = new List<float>();
@@ -18,7 +18,11 @@ namespace Types
         /// <param name="rating">Nowa ocena</param>
         public void AddRating (float rating)
         {
-            ratings.Add(rating);
+            if (rating >= 0 && rating <=10)
+            {
+                ratings.Add(rating);
+            }
+           
         }
         /// <summary>
         /// Oblicza statystyki wyseparowane do klasy DiaryStatistics
