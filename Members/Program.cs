@@ -14,15 +14,16 @@ namespace Members
             diary.AddRating(4.5f);
             diary.AddRating(8.9f);
 
-            //Aby wywołać dwu delegatów bez nadpisania metody należy zastosować operator +=
-            diary.NameChanged += new NameChangedDelegate(OnNameChanged);
+            //Aby wywołać dwu delegatów/subskrybentów eventu bez nadpisania metody należy zastosować operator +=
+            diary.NameChanged += OnNameChanged;
             diary.NameChanged += new NameChangedDelegate(OnNameChanged2);
             diary.NameChanged += new NameChangedDelegate(OnNameChanged3);
-            diary.NameChanged += new NameChangedDelegate(OnNameChanged4);
+            diary.NameChanged -= new NameChangedDelegate(OnNameChanged4);
+            diary.NameChanged += null;
 
             DiaryStatistics stats = diary.ComputeStatistics();
 
-            //WriteResult("średnia",stats.averageGrade);
+            //WriteResult("średni a",stats.averageGrade);
             //WriteResult("Max", (int)stats.maxGrade,1);
             //WriteResult("Minimum",stats.minGrade);
             diary.Name = "Dziennik Icka";
@@ -32,22 +33,22 @@ namespace Members
             Console.ReadKey();
         }
 
-        private static void OnNameChanged(string existingName, string newName)
+        private static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"Zmiana nazwy z {existingName} na {newName}");
+            Console.WriteLine($"Zmiana nazwy z {args.ExistingName} na {args.NewName}");
         }
 
-        private static void OnNameChanged2(string existingName, string newName)
+        private static void OnNameChanged2(object sender, NameChangedEventArgs args)
         {
             Console.WriteLine("******************************************");
         }
 
-        private static void OnNameChanged3(string existingName, string newName)
+        private static void OnNameChanged3(object sender, NameChangedEventArgs args)
         {
             Console.WriteLine("???????????????????????????????????????????");
         }
 
-        private static void OnNameChanged4(string existingName, string newName)
+        private static void OnNameChanged4(object sender, NameChangedEventArgs args)
         {
             Console.WriteLine("//////////////////////////////////////////////");
         }
