@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Speech.Synthesis;
 
 namespace StudentDiary
 {
@@ -18,10 +19,18 @@ namespace StudentDiary
 
             DiaryStatistics stats = diary.ComputeStatistics();
 
+            SpeakData(stats);
+
             Console.WriteLine("Srednia Twoich ocen to: " + stats.averageGrade);
             Console.WriteLine("Najwyższa ocena to: " + stats.maxGrade);
             Console.WriteLine("Najniższa ocena to: " + stats.minGrade);
             Console.ReadKey();
+        }
+
+        private static void SpeakData(DiaryStatistics stats)
+        {
+            SpeechSynthesizer synt = new SpeechSynthesizer();
+            synt.Speak("Srednia Twoich ocen to: " + stats.averageGrade);
         }
     }
 }
