@@ -14,32 +14,42 @@ namespace Members
             diary.AddRating(4.5f);
             diary.AddRating(8.9f);
 
+            //Aby wywołać dwu delegatów bez nadpisania metody należy zastosować operator +=
+            diary.NameChanged += new NameChangedDelegate(OnNameChanged);
+            diary.NameChanged += new NameChangedDelegate(OnNameChanged2);
+            diary.NameChanged += new NameChangedDelegate(OnNameChanged3);
+            diary.NameChanged += new NameChangedDelegate(OnNameChanged4);
+
             DiaryStatistics stats = diary.ComputeStatistics();
 
             //WriteResult("średnia",stats.averageGrade);
             //WriteResult("Max", (int)stats.maxGrade,1);
             //WriteResult("Minimum",stats.minGrade);
             diary.Name = "Dziennik Icka";
-            diary.Name = "";
+            diary.Name = "Dziennik Zuzi";
             
             Console.Write(diary.Name);
             Console.ReadKey();
         }
 
-        //przykłady overloadingu
-        static void WriteResult(string description,params float[] result)
+        private static void OnNameChanged(string existingName, string newName)
         {
-            Console.WriteLine(description + ": " + result[0] + " " + result[1]);
+            Console.WriteLine($"Zmiana nazwy z {existingName} na {newName}");
         }
 
-        static void WriteResult(string description, float result)
+        private static void OnNameChanged2(string existingName, string newName)
         {
-            Console.WriteLine(description + ": " + result);
+            Console.WriteLine("******************************************");
         }
 
-        static void WriteResult(string description, int result)
+        private static void OnNameChanged3(string existingName, string newName)
         {
-            Console.WriteLine(description + ": " + result);
+            Console.WriteLine("???????????????????????????????????????????");
+        }
+
+        private static void OnNameChanged4(string existingName, string newName)
+        {
+            Console.WriteLine("//////////////////////////////////////////////");
         }
     }
 }

@@ -22,10 +22,18 @@ namespace Members
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    if (_name != value)
+                    {
+                        NameChanged(_name, value);
+                    }
+
                     _name = value;
                 }
             }
         }
+
+        //Delegat
+        public NameChangedDelegate NameChanged;
 
         //Zachowania (metody, którymi będzie dysponować klasa) 
 
