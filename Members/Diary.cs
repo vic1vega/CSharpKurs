@@ -36,7 +36,7 @@ namespace Members
             }
         }
 
-        //Delegat
+        //Delegat/zdarzenie
         public event NameChangedDelegate NameChanged;
 
         //Zachowania (metody, którymi będzie dysponować klasa) 
