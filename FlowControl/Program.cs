@@ -17,8 +17,38 @@ namespace FlowControl
             name = Console.ReadLine();
 
             //IfInstruction();
+            //SwitchInstruction();
 
-            SwitchInstruction();
+            //LoopInstruction
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Wartość i: {i}");
+            }
+
+            int i1 = 1;
+            while (i1 > 2)
+            {
+                i1++;
+                Console.WriteLine("Hello");
+            }
+
+            do
+            {
+                i1++;
+                Console.WriteLine("Hello");
+            } while (i1 > 3);
+
+            int[] arrs = { 1, 2, 3, 4, 5 };
+            foreach (var arr in arrs)
+            {
+                Console.WriteLine(arr);
+            }
+            
+            //pętla nieskończona
+            for (; ; )
+            {
+                Console.WriteLine("Inf Loop");
+            }
 
             Console.ReadKey();
         }
