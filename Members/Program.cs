@@ -9,6 +9,7 @@ namespace Members
         static void Main(string[] args)
         {
             Diary diary = new Diary();
+            diary.Name = null;
             diary.AddRating(7);
             diary.AddRating(8);
             diary.AddRating(4.5f);

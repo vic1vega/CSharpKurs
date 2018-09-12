@@ -22,17 +22,20 @@ namespace Members
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    if (_name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-
-                        NameChanged(this, args);
-                    }
-
-                    _name = value;
+                    throw new ArgumentNullException("Nazwa nie może być pusta");
                 }
+
+                if (_name != value)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
+
+                    NameChanged(this, args);
+                }
+
+                _name = value;
+
             }
         }
 
@@ -45,13 +48,13 @@ namespace Members
         /// Dodaje ocenę do zbioru ocen w Dzienniczku
         /// </summary>
         /// <param name="rating">Nowa ocena</param>
-        public void AddRating (float rating)
+        public void AddRating(float rating)
         {
-            if (rating >= 0 && rating <=10)
+            if (rating >= 0 && rating <= 10)
             {
                 ratings.Add(rating);
             }
-           
+
         }
         /// <summary>
         /// Oblicza statystyki wyseparowane do klasy DiaryStatistics
@@ -71,7 +74,7 @@ namespace Members
             stats.averageGrade = sum / ratings.Count;
             stats.maxGrade = ratings.Max();
             stats.minGrade = ratings.Min();
-            
+
             return stats;
         }
     }

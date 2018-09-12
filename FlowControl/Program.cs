@@ -20,9 +20,9 @@ namespace FlowControl
             //SwitchInstruction();
             //LoopInstruction();
             //JumpingInstructions1();
+            //int[] ages = {1, 2, 4};
+            //JumpingInstructions2(ages);
 
-            int[] ages = {1, 2, 4};
-            JumpingInstructions2(ages);
 
 
             Console.ReadKey();
