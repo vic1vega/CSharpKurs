@@ -20,11 +20,6 @@ namespace Members
 
             set
             {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException("Nazwa nie może być pusta");
-                }
-
                 if (_name != value)
                 {
                     NameChangedEventArgs args = new NameChangedEventArgs();

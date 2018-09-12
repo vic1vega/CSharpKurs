@@ -9,7 +9,18 @@ namespace Members
         static void Main(string[] args)
         {
             Diary diary = new Diary();
-            diary.Name = null;
+
+            try
+            {
+                Console.WriteLine("Podaj nazwisko osby zakładającej dziennik: ");
+                diary.Name = Console.ReadLine();
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Stos: " + ex.StackTrace);
+            }
+
             diary.AddRating(7);
             diary.AddRating(8);
             diary.AddRating(4.5f);
