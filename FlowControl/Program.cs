@@ -18,7 +18,62 @@ namespace FlowControl
 
             //IfInstruction();
             //SwitchInstruction();
+            //LoopInstruction();
+            //JumpingInstructions1();
 
+            int[] ages = {1, 2, 4};
+            JumpingInstructions2(ages);
+
+
+            Console.ReadKey();
+        }
+
+        #region jumpingInstructions
+        private static void JumpingInstructions2(int[] ages)
+        {
+            foreach (int age in ages)
+            {
+                Console.WriteLine("Wiek wynosi");
+                return;
+            }
+        }
+
+        private static void JumpingInstructions1()
+        {
+            //JumpingInstruction
+            int[] ages = { 1, 2, 4, 78, 20 };
+
+            foreach (int age in ages)
+            {
+                if (age == 2)
+                {
+                    Console.WriteLine($"Wiek wynosi {age}");
+                    continue;
+                    Console.WriteLine($"Wiek wynosi {age}, ale jest continue więc nigdy się nie wykona");
+                }
+
+                if (age == 4)
+                {
+                    Console.WriteLine($"Wiek wynosi {age}");
+                    break;
+                    Console.WriteLine($"Wiek wynosi {age}, ale jest break więc wyjdziemy z pętli");
+                }
+
+                if (age == 1)
+                {
+                    Console.WriteLine($"Wiek wynosi {age}");
+                    goto skip;
+                    Console.WriteLine($"Wiek wynosi {age}, ale jest goto więc przeskoczy do goto i będzie wykonywać kod od miejsca przeskokou");
+                }
+            }
+
+            skip:
+            Console.WriteLine("Skok kodu na goto");
+        }
+        #endregion
+
+        private static void LoopInstruction()
+        {
             //LoopInstruction
             for (int i = 0; i < 3; i++)
             {
@@ -43,14 +98,12 @@ namespace FlowControl
             {
                 Console.WriteLine(arr);
             }
-            
+
             //pętla nieskończona
             for (; ; )
             {
                 Console.WriteLine("Inf Loop");
             }
-
-            Console.ReadKey();
         }
 
         private static void SwitchInstruction()
