@@ -9,15 +9,44 @@ namespace FlowControl
     class Program
     {
         private static int age;
-
-
+        private static string name;
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Podaj imię: ");
+            name = Console.ReadLine();
+
+            //IfInstruction();
+
+            SwitchInstruction();
+
+            Console.ReadKey();
+        }
+
+        private static void SwitchInstruction()
+        {
+            //switchInstruction
+            switch (name)
+            {
+                case "Marcin":
+                    Method1();
+                    break;
+                case "Tomek":
+                    Method2();
+                    break;
+                default:
+                    Method4();
+                    break;
+            }
+        }
+
+        private static void IfInstruction()
+        {
+            //Instrukcje if
             Console.WriteLine("Podaj wiek: ");
             age = int.Parse(Console.ReadLine());
 
-            if (age <=10)
+            if (age <= 10)
             {
                 Method1();
             }
@@ -33,8 +62,6 @@ namespace FlowControl
             {
                 Method4();
             }
-
-            Console.ReadKey();
         }
 
         private static void Method4()
