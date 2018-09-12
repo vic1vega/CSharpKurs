@@ -20,6 +20,14 @@ namespace Members
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Stos: " + ex.StackTrace);
             }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Zdarzenie nie posiada żadnych subsrybentów");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Wyjątek nieobsługiwany");
+            }
 
             diary.AddRating(7);
             diary.AddRating(8);
