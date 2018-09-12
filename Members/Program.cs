@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace Members
 {
@@ -8,26 +9,51 @@ namespace Members
     {
         static void Main(string[] args)
         {
-            Diary diary = new Diary();
+            StreamWriter file = new StreamWriter("plik.txt");
 
             try
             {
-                Console.WriteLine("Podaj nazwisko osby zakładającej dziennik: ");
-                diary.Name = Console.ReadLine();
+                file.WriteLine("Test bloku finally");
             }
-            catch (ArgumentNullException ex)
+            finally
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Stos: " + ex.StackTrace);
+                //przy try bez finalizacji obiekt txt jest cały czas otwarty co za tym idzie plik nie zawiera zmian
+                file.Close();
             }
-            catch (NullReferenceException)
+
+            //using sam zajmie się obsługą obiektu - nie musimy,np. pamiętać o jego zamknięciu
+            using (StreamWriter file1 = new StreamWriter("plik.txt",))
             {
-                Console.WriteLine("Zdarzenie nie posiada żadnych subsrybentów");
+                file1.WriteLine("Test bloku finally - z usinga");
             }
-            catch (Exception)
-            {
-                Console.WriteLine("Wyjątek nieobsługiwany");
-            }
+
+
+            Diary diary = new Diary();
+
+            #region ErrorThrowing
+            //try
+            //{
+            //    Console.WriteLine("Podaj nazwisko osby zakładającej dziennik: ");
+            //    diary.Name = Console.ReadLine();
+            //}
+            //catch (ArgumentNullException ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("Stos: " + ex.StackTrace);
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    Console.WriteLine("Zdarzenie nie posiada żadnych subsrybentów");
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Wyjątek nieobsługiwany");
+            //}
+            //finally
+            //{
+
+            //}
+            #endregion
 
             diary.AddRating(7);
             diary.AddRating(8);
